@@ -175,7 +175,7 @@ def tests_lock_metadata_gets_overwritten_if_entry_points_is_provided(
 
 
 def tests_package_name_is_required(mock_subprocess_call, black_fake_entry_points):
-    with pytest.raises(typer.Exit) as e:
+    with pytest.raises(typer.Abort) as e:
         install(str(BLACK_NO_NAME_LOCK), package_name=None, entry_points=None)
 
     assert "package name is required" in str(e)
@@ -184,7 +184,7 @@ def tests_package_name_is_required(mock_subprocess_call, black_fake_entry_points
 def tests_corrupted_meta_requires_package_name(
     mock_subprocess_call, black_fake_entry_points
 ):
-    with pytest.raises(typer.Exit) as e:
+    with pytest.raises(typer.Abort) as e:
         install(str(BLACK_CORRUPTED_LOCK), package_name=None, entry_points=None)
 
     try:
@@ -200,7 +200,7 @@ def tests_corrupted_meta_requires_package_name(
 def tests_standard_lock_file_needs_package_name(
     mock_subprocess_call, black_fake_entry_points
 ):
-    with pytest.raises(typer.Exit) as e:
+    with pytest.raises(typer.Abort) as e:
         install(str(BLACK_STANDARD_LOCK), package_name=None, entry_points=None)
 
     try:
