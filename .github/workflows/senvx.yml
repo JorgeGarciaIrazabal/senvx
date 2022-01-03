@@ -22,8 +22,9 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           auto-activate-base: true
-          python-version: 3.7
+          python-version: 3.8
           activate-environment: "test"
+          channels: conda-forge,defaults,jorgegarciairazabal
       - name: install senv
         shell: bash -l {0}
         run: |
@@ -52,5 +53,5 @@ jobs:
         shell: bash -l {0}
         run: |
           senv package publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} -b --build-system poetry -y
-          senv package publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} -b --build-system conda -y
+          senv package publish -u ${{ secrets.ANACONDA_USERNAME }} -p ${{ secrets.ANACONDA_PASSWORD }} -b --build-system conda -y
 
