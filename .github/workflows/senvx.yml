@@ -37,13 +37,13 @@ jobs:
       - name: create installer
         shell: bash -l {0}
         run: |
-          senv venv run pyinstaller main.py  -F -n senvx-${{ matrix.platform }} -c
+          senv e run pyinstaller senvx/main.py  -F -n senvx-${{ matrix.platform }} -c
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: senvx/dist/senvx*
+          file: dist/senvx*
           asset_name: senvx-${{ matrix.platform }}
           tag: ${{ github.ref }}
           overwrite: true
