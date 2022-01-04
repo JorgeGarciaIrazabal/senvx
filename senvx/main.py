@@ -18,8 +18,8 @@ def install(
         "--lock-uri",
         help="lock file url",
     ),
-    package_name: Optional[str] = typer.Argument(...),
-    entry_points: Optional[List[str]] = typer.Argument(None),
+    package_name: Optional[str] = typer.Argument(None, help=""),
+    entry_points: Optional[List[str]] = typer.Option(None, "-e", "--entry-points"),
 ):
     app_path = Path(Settings().INSTALLATION_PATH)
     app_path.mkdir(parents=True, exist_ok=True)

@@ -9,12 +9,12 @@ import typer
 
 from senvx.main import install
 from senvx.models import Settings
-from senvx.tests.conftest import STATIC_PATH
-
-BLACK_METADATA_LOCK = STATIC_PATH / "black-with-meta.lock.json"
-BLACK_NO_NAME_LOCK = STATIC_PATH / "black-with-no-name.lock.json"
-BLACK_CORRUPTED_LOCK = STATIC_PATH / "black-corrupted.lock.json"
-BLACK_STANDARD_LOCK = STATIC_PATH / "black-corrupted.lock.json"
+from senvx.tests.conftest import (
+    BLACK_CORRUPTED_LOCK,
+    BLACK_METADATA_LOCK,
+    BLACK_NO_NAME_LOCK,
+    BLACK_STANDARD_LOCK,
+)
 
 
 @pytest.fixture(autouse=True)
