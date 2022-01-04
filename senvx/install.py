@@ -55,6 +55,7 @@ def _create_entry_points_symlinks(installation_path, metadata):
             continue
         installation_path / "bin" / entrypoint
         dst = Path(Settings().BIN_DIR / entrypoint)
+        dst.parent.mkdir(exist_ok=True, parents=True)
         src = installation_path / "bin" / entrypoint
         dst.unlink(missing_ok=True)
         os.symlink(src, dst)
