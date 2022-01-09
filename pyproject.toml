@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "senvx"
-version = "0.0.1"
+version = "0.0.2"
 description = "Package installer and consumer for Senv (Super Environment), a tool to simplify dependency management, packaging, distribution, and consumption of your applications and libraries."
 authors = ["Jorge <jorge.girazabal@gmail.com>"]
 readme = "README.md"
